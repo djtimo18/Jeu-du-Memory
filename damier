@@ -1,0 +1,38 @@
+Code pour un dmier simple en 10x10
+
+
+
+# -*- coding: utf-8 -*-
+
+
+#!/usr/bin/python
+from tkinter import *
+fen1=Tk()
+fen1.title("Damier")
+fen1.geometry("500x500")
+x=1
+x1=2
+i=1
+y=1
+def carre_bleu(x,y):
+        can1=Canvas(fen1,height=40,width=40,bg="blue")
+        can1.grid(column=x,row=y)
+def carre_blanc(x,y):
+        can1=Canvas(fen1,height=40,width=40,bg="white")
+        can1.grid(column=x,row=y)
+while y<=10:
+    while i<=5:
+        if y==1 or y==3 or y==5 or y==7 or y==9:
+            carre_bleu(x,y)
+            carre_blanc(x1,y)
+        else:
+            carre_blanc(x,y)
+            carre_bleu(x1,y)
+        x+=2
+        x1+=2
+        i+=1
+    i=1
+    x=1
+    x1=2
+    y+=1
+fen1.mainloop()
