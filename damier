@@ -1,38 +1,50 @@
-Code pour un dmier simple en 10x10
+Code damier+pion
 
-
-
-# -*- coding: utf-8 -*-
-
-
-#!/usr/bin/python
 from tkinter import *
-fen1=Tk()
-fen1.title("Damier")
-fen1.geometry("500x500")
-x=1
-x1=2
-i=1
-y=1
-def carre_bleu(x,y):
-        can1=Canvas(fen1,height=40,width=40,bg="blue")
-        can1.grid(column=x,row=y)
-def carre_blanc(x,y):
-        can1=Canvas(fen1,height=40,width=40,bg="white")
-        can1.grid(column=x,row=y)
-while y<=10:
-    while i<=5:
-        if y==1 or y==3 or y==5 or y==7 or y==9:
-            carre_bleu(x,y)
-            carre_blanc(x1,y)
-        else:
-            carre_blanc(x,y)
-            carre_bleu(x1,y)
-        x+=2
-        x1+=2
-        i+=1
-    i=1
-    x=1
-    x1=2
-    y+=1
-fen1.mainloop()
+from random import *
+
+def pion():
+    global couleur
+    x = randint(0,9)
+    y = randint(0,9)
+    Canevas.create_oval((x-1)*50-45, (y-1)*50-45, x*50-55, y*50-55, outline=couleur, fill=couleur)
+
+def Damier():
+    cell_size = 50
+    board_size = 50
+    canvas_size = cell_size * board_size
+    colors = ["white", "black"]     
+    for x in range(int(500/board_size)):
+        for y in range(int(500/board_size)):
+            color = colors[(x + y) % 2]
+            Canevas.create_rectangle(
+                y * cell_size,
+                x * cell_size,
+                y * cell_size + cell_size,
+                x * cell_size + cell_size,
+                fill=color, outline=color
+            )      
+
+### Programme principal ###
+MaFenetre = Tk()
+MaFenetre.title('Damier')
+MaFenetre.geometry('515x560+300+100')
+
+Largeur = 500
+Hauteur = 500
+Canevas = Canvas(MaFenetre, width = Largeur, height = Hauteur, bg ='white')
+Canevas.pack(padx = 5, pady =5)
+
+couleur = 'blue'
+#Bouton Damier
+BoutonDamier = Button(MaFenetre, text ='Damier' , command = Damier, relief=GROOVE )
+BoutonDamier.pack(side = LEFT, padx = 10, pady = 10) 
+
+#Bouton Quitter
+BoutonQuitter = Button(MaFenetre, text ='Quitter', command = MaFenetre.destroy, relief=GROOVE)
+BoutonQuitter.pack(side = RIGHT, padx = 5, pady = 5)
+
+#Bouton pion
+BoutonPion = Button(MaFenetre, text ='Pion', command = pion, relief=GROOVE)
+BoutonPion.pack(side = RIGHT, padx = 5, pady = 5)
+MaFenetre.mainloop()
