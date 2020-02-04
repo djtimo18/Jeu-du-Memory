@@ -1,0 +1,41 @@
+from tkinter import *
+from math import *
+
+### Programme principal ###
+MaFenetre = Tk()
+MaFenetre.title('Jeu du Memory')
+MaFenetre.attributes('-fullscreen', True)
+
+Largeur = 750
+Hauteur = 650
+Canevas = Canvas(MaFenetre, width = Largeur, height = Hauteur, bg ='white')
+Canevas.pack(padx = 5, pady =5)
+
+
+
+def Damier():
+    cell_size = 75
+    board_size = 50
+    canvas_size = cell_size * board_size
+    colors = ["red", "yellow"]     
+    for x in range(1):
+        for y in range(2):
+            color = colors[(x + y) % 2]
+            Canevas.create_rectangle(
+                y * cell_size,
+                x * cell_size,
+                y * cell_size + cell_size,
+                x * cell_size + cell_size,
+                fill=color, outline=color
+            )  
+
+#Bouton Carte
+BoutonCarte = Button(MaFenetre, text ='Carte', command = Damier, relief=GROOVE)
+BoutonCarte.pack(side = RIGHT, padx = 5, pady = 5)
+
+#Bouton Quitter
+BoutonQuitter = Button(MaFenetre, text ='Quitter', command = MaFenetre.destroy, relief=GROOVE)
+BoutonQuitter.pack(side = RIGHT, padx = 5, pady = 5)
+
+MaFenetre.mainloop()
+
