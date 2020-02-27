@@ -34,3 +34,5 @@ button_2.grid(row=1, column=1)
 button_3.grid(row=1, column=2)
 
 my_window.mainloop()
+
+# Pour l'esthétique on verra plus tard. Si full screen faudra changer des choses.
