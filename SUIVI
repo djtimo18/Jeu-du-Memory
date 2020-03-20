@@ -21,4 +21,6 @@ Repartition des roles :
 Ajout de fichier "mode" + "damier" pour faire des test.
 Le but est de trouver comment afficher de façon propre des cartes.
 
- 
+ 20/03 :
+ Ajout d'un fichier complet.py qui permet de regrouper les autres fichiers en un.
+ Ajout du fichier menu(image) qui permet d'afficher en fond une image (ne fonctionne aps erreur : image "pyimage2" doesn't exist)
