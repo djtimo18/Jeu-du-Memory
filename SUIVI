@@ -24,3 +24,8 @@ Le but est de trouver comment afficher de façon propre des cartes.
  20/03 :
  Ajout d'un fichier complet.py qui permet de regrouper les autres fichiers en un.
  Ajout du fichier menu(image) qui permet d'afficher en fond une image (ne fonctionne aps erreur : image "pyimage2" doesn't exist)
+ 
+ 07/04 :
+ Ajout d'un fichier grille.py fait par (Timothé) qui permet avec un bouton d'afficher les images des façon linéaire et propre. 
+ On peut regler grace à "NB_LINES=" et "NB_COLS=" la difficulté de la partie, il faudra par la suite ajouter ce réglage dans le menu.
+ Je cherche maintenant comment supprimer un canvas quand on clique dessus.
